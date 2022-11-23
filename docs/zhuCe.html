@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>user</title>
+</head>
+<link href="css/guide.css" rel="stylesheet" type="text/css">
+<link href="css/zhuCe.css" rel="stylesheet" type="text/css">
+<link href="css/scrollBox.css" rel="stylesheet" type="text/css">
+<link href="css/font.css" rel="stylesheet" type="text/css">
+<script type="module" src="js/zhuCe.js"></script>
+<body id="body">
+<div class="daoHang" onmousedown="return false;">
+    <div class="break"></div>
+    <div class="breakHover"><img class="logo scrollImg_bounce" style="--t:1.1" id="logo" src="images/logo.png" alt="logo">
+        </div>
+    <table id="svgTable">
+        <tr>
+            <td><a href="./zhuCe.html">
+                <div class="svgBox">
+                    <img class="scrollText_scl" style="--t:1.1" src="images/svg/user.svg" data-name="1" alt="">
+                </div>
+            </a>
+            </td>
+            <td>
+                <a href="./shouYe.html">
+                <div class="svgBox">
+                    <img class="scrollText_scl" style="--t:1.1" src="images/svg/home%201-fill.svg" data-name="2" alt="">
+                </div>
+                </a>
+            </td>
+            <td>
+                <div class="svgBox">
+                    <img class="scrollText_scl" style="--t:1.1" src="images/svg/menu.svg" data-name="3" alt="">
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="menuHover" id="menuHover"></div>
+<div id="userBox" class="scrollText_scl" style="--t:1.1">
+    <div id="title"></div>
+    <div id="login" class="scrollBox_changeX start" style="--t:1.1">
+        <form id="loginForm">
+            <label for="l1">
+            <span class="userText" onmousedown="return false;">用户名</span><br>
+            </label>
+            <input type="text" name="username" id="l1" required maxlength="5">
+            <label for="l2">
+            <span class="userText" onmousedown="return false;">密码</span><br>
+            </label>
+            <input type="text" name="password" id="l2" required>
+            <input type="submit" value="确定" class="submit">
+            <input type="reset" value="重置" class="submit">
+        </form>
+    </div>
+        <span id="boxChange" onmousedown="return false;"><u>转至注册</u></span>
+    <div id="register" class="scrollBox_changeX" style="--t:1.1">
+        <form id="registerForm">
+            <label for="r1">
+                <span class="userText" onmousedown="return false;">用户名</span><br>
+            </label>
+            <input type="text" name="username" id="r1" disabled required maxlength="5">
+            <label for="r2">
+                <span class="userText" onmousedown="return false;">密码</span><br>
+            </label>
+            <input type="text" name="password" id="r2" disabled required>
+            <label for="r3">
+                <span class="userText" onmousedown="return false;">确认密码</span><br>
+            </label>
+            <input type="text" name="password" id="r3" disabled required>
+            <input type="submit" value="确定" class="submit">
+            <input type="reset" value="重置" class="submit">
+        </form>
+<!--        <span class="boxChange"><u>转至登入</u></span>-->
+    </div>
+<div id="userHover">
+</div>
+</div>
+<svg width="0" height="0">
+    <clipPath id="svg2">
+        <text x="75" y="80" font-size="25px" font-weight="900" stroke="black" font-family="lxgw-r">人工智能</text>
+    </clipPath>
+</svg>
+<svg width="0" height="0">
+    <clipPath id="svg3">
+        <text id="svgText" x="50" y="40" text-anchor="middle" font-size="35px" font-weight="900" stroke="black" font-family="lxgw-b">登入</text>
+    </clipPath>
+</svg>
+</body>
+</html>
