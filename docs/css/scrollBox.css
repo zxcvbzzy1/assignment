@@ -36,13 +36,14 @@
 }
 .scrollImg_bounce{
     --t:1.1;
+    --d:0.2;
     transform: scale(0.8,0.8);
     transition: calc(0.5s*var(--t)) .1s;
     opacity: 0;
 }
 .scrollImg_bounce.start{
     transform: scale(1,1);
-    transition: calc(0.9s*var(--t)) .2s cubic-bezier(.03,2,.38,4);
+    transition: calc(0.9s*var(--t)) calc(var(--d)*1s) cubic-bezier(.03,2,.38,4);
     opacity: 1;
 }
 .scrollBox_changeX{
