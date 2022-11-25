@@ -1,0 +1,150 @@
+html{
+    width: 100%;
+    height: 100%;
+}
+body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'lxgw-r';
+    background-image: url("../images/342.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+.daoHang{
+    width: 100%;
+    height: 100px;
+    /*background-image: url("../images/342.jpg");*/
+    background-image: url("../images/8.jpg");
+    /*background-color: rgba(255, 241, 68, 0);*/
+    background-size: cover;
+    background-attachment: fixed;
+    position: fixed;
+    z-index: 0;
+}
+.menuHover{
+    opacity: 0.8;
+    height: 0;
+    width: 100%;
+    transition: .5s .1s;
+    background-image: url("../images/1.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    position: fixed;
+    top: 100px;
+    z-index: 4;
+}
+.menuHover.open{
+    top: 100px;
+    box-shadow: 0 0 10px 1px rgba(17, 42, 58, 0.7), 0 0 20px 1px rgba(17, 42, 58, 0.7);
+}
+.main{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    color: white;
+}
+.introBox{
+    width: 60%;
+    margin: 140px auto;
+    height: 550px;
+    /*background-color: rgba(255, 255, 255, 0.5);*/
+    position: relative;
+}
+.svgBox.arrDown{
+    left: 45%;
+    bottom: 0;
+    position: absolute;
+}
+.svgBox.arrUp{
+    position: absolute;
+    top: 0;
+    left: 45%;
+}
+.introLeft{
+    margin-top: 5px;
+    margin-right: 8px;
+    float: left;
+    position: relative;
+}
+#posit{
+    position: absolute;
+    transform: scale(1.2,1.2);
+    z-index: 1;
+    cursor: pointer;
+}
+p{
+    font-size: 17px;
+}
+#introBox2{
+    padding: 0 20px;
+    border-radius:10px ;
+    box-shadow: 0 0 10px 1px #c5bb35,0 0 30px 1px #d9cb39,inset 0 0 20px 1px #d9cb39;
+}
+#h11{
+    text-shadow: 0 0 10px #c5bb35,0 0 20px  #d9cb39;
+    font-weight: 700;
+}
+.snow{
+    position: absolute;
+    width: 110px;
+}
+#snow1{
+    rotate: -80deg;
+    width: 100px;
+    top: 50px;
+    left: 20px;
+    z-index: 0;
+}
+#snow2{
+    width: 300px;
+    left: 500px;
+    bottom: 0;
+}
+#snow3{
+    rotate: 70deg;
+    width: 150px;
+    top: 250px;
+    right: 10px;
+}
+#snow4{
+    rotate: -50deg;
+    width: 150px;
+    top: 100px;
+    right: 200px;
+}
+#snow5{
+    rotate: -20deg;
+    width: 80px;
+    top: 200px;
+    right: 350px;
+}
+#snow6{
+    rotate: 90deg;
+    width: 200px;
+    left: 100px;
+}
+#expert{
+    display: block;
+    width: 500px;
+    margin: 0 auto;
+}
+#introBox5{
+    padding: 0 20px;
+    box-shadow: 0 0 10px 1px #6cbfdd,0 0 20px 1px #6cbfdd,inset 0 0 20px 1px #5b96b4;
+}
+#h22{
+    text-shadow: 0 0 10px #6cbfdd,0 0 20px #6cbfdd;
+}
+.ii{
+    margin-left: 20px;
+    width: 200px;
+}
+#introBox7{
+    background-image: url("../images/future.png");
+    background-size: cover;
+    background-attachment: scroll;
+    background-position: center center;
+}
