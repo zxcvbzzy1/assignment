@@ -1,5 +1,7 @@
 import {svgSrc} from "./changeSrc.js";
 import {mouseImgMove,SBzz} from "./animate_mouse.js";
+import {message} from "./message.js";
+import * as reg from "./reg.js";
 window.onload=function (){
     let logo=document.getElementById('logo')
     let svgScroll=document.querySelectorAll('.svgBox img')
@@ -45,14 +47,83 @@ window.onload=function (){
         svgText.innerHTML=str[n++]
     }
     let registerForm=document.getElementById('registerForm')
+    
+    let active=document.activeElement
+    register.addEventListener('focus',function (){
+        active=document.activeElement
+        },true)
+    register.addEventListener('blur',function (){
+        active.onblur=function (){
+            if(reg.reg_sql.test(this.value)){message('含有未知字符(仅支持空格,_,汉字)')}
+            if(active.id==='r3'||active.id==='r2')
+                if(reg.reg_pass.test(this.value))message('密码只能包含数字与大小写字母')
+            if(active.id==='r3')
+                if(arrRe[1].value!==arrRe[2].value) message("密码不一致")
+        }
+        },true)
+    let security=document.getElementById('security')
+    arrRe[1].onfocus=function (){
+            security.style.display='block'
+    }
+    arrRe[1].addEventListener('input',function (){
+        let n1,n2,n3,sum;
+        let length=this.value.length;
+        n1=n2=n3=sum=0
+        if(reg.reg_pass1.test(this.value)) n1=1;
+        if(reg.reg_pass2.test(this.value)) n2=1;
+        if(reg.reg_pass3.test(this.value)) n3=1;
+        sum=n1+n2+n3;
+        if(length<=4) {security.innerHTML='安全等级：弱(太短）';return;}
+        if(sum===1) security.innerHTML='安全等级：弱';
+        if(sum===2) security.innerHTML='安全等级：中';
+        if(sum===3) security.innerHTML='安全等级：强';
+        if(n1===0) security.innerHTML+='<br><strong>建议包含数字</strong>'
+        if(n2===0) security.innerHTML+='<br><strong>建议包含小写字母</strong>'
+        if(n3===0) security.innerHTML+='<br><strong>建议包含大写字母</strong>'
+    })
     registerForm.onsubmit=function (){
-            if(arrRe[2].value==='' || arrRe[1].value===''){
-                alert("密码为空");return false;
+            let bool=true;
+            arrRe.forEach((item)=>{
+                if (reg.reg_sql.test(item.value)){
+                    message('含有未知字符(仅支持空格,_,汉字)');
+                    bool=false
+                }
+            })
+            if(reg.reg_pass.test(arrRe[1].value) || reg.reg_pass.test(arrRe[2].value))
+            {
+                message('密码只能包含数字英文大小写');bool=false;
             }
             if(arrRe[1].value!==arrRe[2].value){
-                alert("密码不一致");return false;
-            }}
+                message("密码不一致")
+                bool=false;
+            }
+        return bool;
+        }
 
+    let loginForm=document.getElementById('loginForm')
+    login.addEventListener('focus',function (){
+        active=document.activeElement
+    },true)
+    login.addEventListener('blur',function (){
+        active.onblur=function (){
+            if(reg.reg_sql.test(this.value)){message('含有未知字符(仅支持空格,_,汉字)')}
+            if(active.id==='l2')
+                if(reg.reg_pass.test(this.value))message('密码只能包含数字与大小写字母')
+        }
+    },true)
 
-
+    loginForm.onsubmit=function (){
+        let bool=true;
+        arrLo.forEach((item)=>{
+            if (reg.reg_sql.test(item.value)){
+                message('含有未知字符(仅支持空格,_,汉字)');
+                bool=false
+            }
+        })
+        if(reg.reg_pass.test(arrLo[1].value))
+        {
+            message('密码只能包含数字英文大小写');bool=false;
+        }
+        return bool;
+    }
 }

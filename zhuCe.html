@@ -8,6 +8,7 @@
 <link href="css/zhuCe.css" rel="stylesheet" type="text/css">
 <link href="css/scrollBox.css" rel="stylesheet" type="text/css">
 <link href="css/font.css" rel="stylesheet" type="text/css">
+<link href="css/message.css" rel="stylesheet" type="text/css">
 <script defer type="module" src="js/zhuCe.js"></script>
 <body id="body">
 <div class="daoHang" onmousedown="return false;">
@@ -38,6 +39,7 @@
     </table>
 </div>
 <div class="menuHover" id="menuHover"></div>
+<div class="errorBox"></div>
 <div id="userBox" class="scrollText_scl" style="--t:1.1">
     <div id="title"></div>
     <div id="login" class="scrollBox_changeX start" style="--t:1.1">
@@ -45,7 +47,7 @@
             <label for="l1">
             <span class="userText" onmousedown="return false;">用户名</span><br>
             </label>
-            <input type="text" name="username" id="l1" required maxlength="5">
+            <input type="text" name="username" id="l1" required maxlength="10">
             <label for="l2">
             <span class="userText" onmousedown="return false;">密码</span><br>
             </label>
@@ -60,11 +62,12 @@
             <label for="r1">
                 <span class="userText" onmousedown="return false;">用户名</span><br>
             </label>
-            <input type="text" name="username" id="r1" disabled required maxlength="5">
+            <input type="text" name="username" id="r1" disabled required maxlength="10">
             <label for="r2">
                 <span class="userText" onmousedown="return false;">密码</span><br>
             </label>
             <input type="text" name="password" id="r2" disabled required>
+            <div id="security">安全等级：弱</div>
             <label for="r3">
                 <span class="userText" onmousedown="return false;">确认密码</span><br>
             </label>

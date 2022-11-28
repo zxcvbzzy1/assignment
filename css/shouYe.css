@@ -175,7 +175,6 @@ h1{
     margin-left: 150px;
     float: left;
     /*background-color: #45494a;*/
-    width: 200px;
     height: 200px;
     opacity: 1;
     transition: .5s .1s;
@@ -197,6 +196,7 @@ h1{
     font-weight: 500;
     cursor: default;
     transition: .5s .1s;
+    line-height: 200px;
 }
 #imgBoxContent1{
     left: 200px;

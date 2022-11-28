@@ -97,7 +97,7 @@ window.onload=function (){
         })}
     let logo=document.getElementById('logo')
     logo.onclick=function () {
-        scroll_top(logo.parentElement,0,1000);
+        scroll_top(logo.parentElement,0,1000,0);
     }
 
     let menuHover=document.getElementById('menuHover')
@@ -152,6 +152,7 @@ window.onload=function (){
         itemScrollAni(ai2);
         itemScrollAni(logo);
         itemScrollAni(logo1);
+        itemScrollAni(h1)
     }
         itemScrollAni(h1)
 
