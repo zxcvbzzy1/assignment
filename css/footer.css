@@ -95,4 +95,5 @@ hr{
     background-color: rgb(255,255,255);
     box-shadow: 0 0 10px 1px rgb(255,255,255);
     transition: .5s 1ms;
+    cursor: pointer;
 }

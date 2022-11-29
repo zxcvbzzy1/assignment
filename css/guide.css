@@ -41,7 +41,7 @@
     transition: .5s .1s;
 }
 .menuHover.open{
-    height: 90px;
+    height: 400px;
     opacity: 1;
     transition: .5s .1s;
 }

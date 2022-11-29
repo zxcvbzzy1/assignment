@@ -70,4 +70,7 @@ window.onload=function (){
         
         
     }
+    menuHover.onmouseleave=function (){
+        menuHover.classList.remove('open')
+    }
 }

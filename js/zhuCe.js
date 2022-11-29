@@ -126,4 +126,7 @@ window.onload=function (){
         }
         return bool;
     }
+    menuHover.onmouseleave=function (){
+        menuHover.classList.remove('open')
+    }
 }

@@ -155,6 +155,8 @@ window.onload=function (){
         itemScrollAni(h1)
     }
         itemScrollAni(h1)
-
+    menuHover.onmouseleave=function (){
+        menuHover.classList.remove('open')
+    }
 
 }
