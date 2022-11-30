@@ -1,6 +1,7 @@
 import {change_Src, srcContact, srcContact1, svgSrc} from "./changeSrc.js";
 import {arrScrollAni, itemScrollAni} from "./animate_scroll.js";
-import { drag} from "./animate_drag.js";
+import {arrLink} from "./animate_drag.js";
+
 window.onload=function (){
     let logo=document.getElementById('logo')
     let svgScroll=document.querySelectorAll('.svgBox img')
@@ -32,36 +33,91 @@ window.onload=function (){
     let main=document.getElementById('main')
     let arrIntro=document.querySelectorAll('#main div')
     let maxZ=arrIntro.length;
+    let InW=arrIntro[0].clientWidth
     function time1(z){
         return Math.pow(z,2);
     }
-    function draw1(z,item,i,bai){
-        // if(item.previousElementSibling) {
-        //     let itemStyle = getComputedStyle(item.previousElementSibling)
-        //     let left=parseFloat(itemStyle.left)
-        //     console.log(item.previousElementSibling.id+':'+itemStyle.left)
-        //     item.previousElementSibling.style.left=`${left-100}px`
-        // }
-        item.style.translate=`0 ${-12*z}%`
-        item.style.opacity=`${z+0.3*bai}`
-        item.style.top=`${150*i}px`
+    
+    function linkDraw(arr,i,num,progress,width,mul,line){
+        if(num===0){
+            let sty=getComputedStyle(arr[i-1])
+            // arr[i].style.zIndex=`${sty.zIndex-1}`
+            arr[i].style.left=`${parseFloat(arr[i-1].style.left)+width/2}px`
+            console.log(sty.transform)
+            requestAnimationFrame(()=>{
+            })
+        }
+        if(num===1){
+            let sty=getComputedStyle(arr[i+1])
+            // arr[i].style.zIndex=`${sty.zIndex-1}`
+            arr[i].style.left=`${parseFloat(arr[i+1].style.left)-width/2}px`
+            requestAnimationFrame(()=>{
+                arr[i].style.transform=`matrix(${0.8*mul+0.2*progress}, 0, 0,${0.8*mul+0.2*progress}, 0, 0)`
+            })
+
+        }
+    }
+    function zChange(arr,i,num,w,width){
+        if(num===0){
+            let sty=getComputedStyle(arr[i-1])
+            arr[i].style.zIndex=`${sty.zIndex-1}`
+        }
+        if(num===1){
+            let sty=getComputedStyle(arr[i+1])
+            arr[i].style.zIndex=`${sty.zIndex-1}`
+        }
     }
     document.onpointermove=function (event1){
         if(event1.target.closest('.intro')){
             let introBox=event1.target.closest('.intro');
             introBox.ondragstart=function (){return false;}
-            introBox.onpointerdown=function (event2){
-                drag(event2,main,introBox,{time:time1,draw:draw1,bool:true});
-                document.addEventListener('pointermove',function (){
-                for(let i=+introBox.dataset.w+1;i<maxZ;i++){
-                    arrIntro[i].style.left=`${parseFloat(arrIntro[i-1].style.left)+50}px`
+            introBox.onselectstart=function (){return false;}
+            introBox.onpointerenter=function (){
+                introBox.style.backgroundColor=`rgb(255,255,255)`
+                introBox.style.opacity='1';
+                introBox.style.top='150px'
+                introBox.style.zIndex='99'
+                introBox.style.transform=`scale(1.1,1.1)`
+            }
+            introBox.onpointerleave=function (){
+                introBox.style.transform=`scale(1,1)`
+                introBox.style.opacity='0.3';
+                introBox.style.backgroundColor=`rgb(255,255,255,0.4)`
+                introBox.style.top='200px'
+                introBox.style.zIndex='1'
+            }
+            introBox.onpointerdown=function (event2) {
+                introBox.style.backgroundColor=`rgb(255,255,255)`
+                introBox.setPointerCapture(event2.pointerId)
+                introBox.style.position = 'absolute'
+                let areaSitX = main.getBoundingClientRect().left + document.documentElement.scrollLeft;
+                let width = main.clientWidth - introBox.clientWidth
+                let itemOffX = event2.offsetX;
+                introBox.style.zIndex=`99`
+                introBox.style.top='115px'
+                function mouseDrag(eve) {
+                    let X = eve.pageX - itemOffX - areaSitX
+                    if (X < 0) X = 0
+                    if (X > width) X = width
+                    let progressMid =X/(width/2)<=1?X/(width/2):2-X/(width/2)
+                    let progressNormal =X/width
+                    let zMid = time1(progressMid)
+                    let zNormal = time1(progressNormal)
+                    introBox.style.left = X + 'px';
+                   arrLink(arrIntro,introBox.dataset.w,maxZ,{draw:linkDraw,progress:zNormal,width:InW/2,mulFactor:0.9,linFactor:0.2})
                 }
-                for(let i=+introBox.dataset.w-1;i>=1;i--){
-                    arrIntro[i].style.left=`${parseFloat(arrIntro[i+1].style.left)-50}px`
+                mouseDrag(event2);
+                document.addEventListener('pointermove', mouseDrag)
+                introBox.onpointerup = function () {
+                    document.removeEventListener('pointermove', mouseDrag)
+                    introBox.style.zIndex=`1`;
+                    introBox.style.top='200px'
+                    introBox.onpointerup=null;
                 }
-                
-                })
+
+                }
+
             }
         }
     }
-}
+

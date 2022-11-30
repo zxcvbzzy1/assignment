@@ -1,6 +1,4 @@
-
-
-export function drag(event,area,item,{time,draw,bool}){
+export function drag(event,area,item,{time,draw}){
     item.setPointerCapture(event.pointerId)
     item.style.position='absolute'
     let areaSitX=area.getBoundingClientRect().left+document.documentElement.scrollLeft;
@@ -12,16 +10,8 @@ export function drag(event,area,item,{time,draw,bool}){
         if(X>width) X=width
         let progress=X/(width/2)<=1?X/(width/2):2-X/(width/2)
         let z=time(progress)
-        let i=1
-        let bai=1
         item.style.left=X+'px';
-
-        draw(z,item,i,bai);
-        if(bool){
-            linkAni({drawN:draw,item:item.previousElementSibling,flag:0,factor:1,bai:1,z:z})
-            linkAni({drawN:draw,item:item.nextElementSibling,flag:1,factor:1,bai:1,z:z})
-        }
-
+        draw(z);
     }
     mouseDrag(event);
     document.addEventListener('pointermove',mouseDrag)
@@ -31,21 +21,18 @@ export function drag(event,area,item,{time,draw,bool}){
         item.onpointerup=null;
     }
 }
-//死亡递归，有能力者帮忙改一下
-export function linkAni({drawN,item,flag,factor,bai,z}){
-    if(!item) return;
-    if(flag===0){
-        factor=factor+0.5;
-        bai*=0.9
-        setTimeout(()=>{drawN(z,item,factor,bai)}
-            ,300)
-        linkAni({drawN:drawN,item:item.previousElementSibling,flag:0,factor:factor,bai:bai,z:z});
+
+export function arrLink(arr,flag,length,{draw,progress,width,mulFactor,linFactor}){
+    let n1=1,n2=1,n3=1,n4=1
+    for(let i=+flag+1;i<length;i++){
+        n1=n1*mulFactor
+        n2=n2+linFactor
+        draw(arr,i,0,progress,width,n1,n2)
     }
-    else {
-        factor=factor+0.5;
-        bai*=0.9
-        setTimeout(()=>{drawN(z,item,factor,bai)}
-            ,300)
-        linkAni({drawN:drawN,item:item.nextElementSibling,flag:1,factor:factor,bai:bai,z:z});
+    for(let i=+flag-1;i>=0;i--){
+        n3=n3*mulFactor
+        n4=n4+linFactor
+        draw(arr,i,1,progress,width,n3,n4)
     }
+
 }

@@ -21,7 +21,7 @@ body{
     background-attachment: fixed;
     position: fixed;
     top: 0;
-    z-index: 2;
+    z-index: 999;
 }
 .menuHover{
     opacity: 0;
@@ -34,35 +34,43 @@ body{
     position: fixed;
     top: 100px;
     right: 6%;
-    z-index: 4;
+    z-index: 999;
     border-radius: 15px;
 }
 .menuHover.open{
     box-shadow: 0 0 10px 1px rgba(17, 42, 58, 0.7), 0 0 20px 1px rgba(17, 42, 58, 0.7);
 }
 #main{
-    width: 95%;
-    height: 1000px;
+    width: 1200px;
+    height: 1300px;
     margin: 150px auto 50px auto;
-    border: 1px solid white;
+    /*border: 1px solid white;*/
     position: relative;
+    clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
+    overflow: hidden;
+
 }
 .intro{
     position: absolute;
-    left: 20%;
-    top: 100px;
+    left: 250px;
+    top: 200px;
     height: 900px;
-    width: 60%;
+    width: 700px;
     border-radius: 50px;
     background-color: rgb(255,255,255,0.4);
-    transition: box-shadow .5s .1s;
-    z-index: auto;
+    transition-property:opacity,top,background-color,box-shadow;
+    transition-duration: .5s;
+    transition-delay: .1s;
+    z-index: 1;
     opacity: 1;
     cursor: pointer;
-    translate: 0 -12%;
+    /*transform:scale(1.1,1.1);*/
+    /*translate: 0 -12%;*/
 }
 
 .intro:hover{
-    transition: box-shadow .5s .1s;
+    transition-property:opacity,top,background-color,box-shadow;
+    transition-duration: .5s;
+    transition-delay: .1s;
     box-shadow: 0 0 10px 1px rgb(255,255,255,0.5),0 0 20px 1px rgb(255,255,255,0.5),inset 0 0 10px 1px rgb(255,255,255,0.5);
 }
