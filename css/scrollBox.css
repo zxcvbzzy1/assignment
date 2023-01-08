@@ -81,6 +81,7 @@
 .scrollBox_rotate.start{
     animation: rotate 1s linear .2s infinite alternate;
 }
+
 @keyframes rotate {
     from{
         transform: scale(1.25,1.25) rotate(-7deg);

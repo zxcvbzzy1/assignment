@@ -2,6 +2,7 @@ import {svgSrc} from "./changeSrc.js";
 import {mouseImgMove,SBzz} from "./animate_mouse.js";
 import {message} from "./message.js";
 import * as reg from "./reg.js";
+import {guideHide} from "./guide.js";
 window.onload=function (){
     let logo=document.getElementById('logo')
     let svgScroll=document.querySelectorAll('.svgBox img')
@@ -128,5 +129,7 @@ window.onload=function (){
     }
     menuHover.onmouseleave=function (){
         menuHover.classList.remove('open')
+        menuHover.firstElementChild.classList.remove('start')
     }
+    guideHide(menuHover)
 }

@@ -1,5 +1,6 @@
 import {change_Src, srcContact, srcContact1, svgSrc} from "./changeSrc.js";
 import {arrScrollAni, itemScrollAni, arrEachScrollAni, scroll_top} from "./animate_scroll.js";
+import {guideHide} from "./guide.js";
 window.onload=function (){
     let logo=document.getElementById('logo')
     let svgScroll=document.querySelectorAll('.svgBox img')
@@ -72,5 +73,7 @@ window.onload=function (){
     }
     menuHover.onmouseleave=function (){
         menuHover.classList.remove('open')
+        menuHover.firstElementChild.classList.remove('start')
     }
+    guideHide(menuHover)
 }

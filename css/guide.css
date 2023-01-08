@@ -44,10 +44,18 @@
     height: 400px;
     opacity: 1;
     transition: .5s .1s;
+    color: white;
 }
 #svgTable{
     position: absolute;
     top: 30%;
     right: 10%;
     height: 30px;
+}
+#menuHover ul{
+    list-style: none;
+}
+#menuHover span:hover{
+    text-shadow: 0 0 10px white,0 0 20px white,0 0 30px white;
+    cursor: pointer;
 }

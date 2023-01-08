@@ -41,8 +41,8 @@ body{
     box-shadow: 0 0 10px 1px rgba(17, 42, 58, 0.7), 0 0 20px 1px rgba(17, 42, 58, 0.7);
 }
 #main{
-    width: 1200px;
-    height: 1300px;
+    width: 100%;
+    height: 2000px;
     margin: 150px auto 50px auto;
     /*border: 1px solid white;*/
     position: relative;
@@ -52,25 +52,206 @@ body{
 }
 .intro{
     position: absolute;
-    left: 250px;
+    left: 100px;
     top: 200px;
-    height: 900px;
-    width: 700px;
+    height: 1500px;
+    width: 850px;
     border-radius: 50px;
-    background-color: rgb(255,255,255,0.4);
-    transition-property:opacity,top,background-color,box-shadow;
+    background-color: rgba(163, 207, 205, 0.4);
+    transition-property:left,top,background-color,box-shadow;
     transition-duration: .5s;
-    transition-delay: .1s;
+    transition-delay: .2s;
     z-index: 1;
-    opacity: 1;
     cursor: pointer;
+    background-image:url("../images/background1.png") ;
     /*transform:scale(1.1,1.1);*/
     /*translate: 0 -12%;*/
 }
-
 .intro:hover{
-    transition-property:opacity,top,background-color,box-shadow;
     transition-duration: .5s;
-    transition-delay: .1s;
-    box-shadow: 0 0 10px 1px rgb(255,255,255,0.5),0 0 20px 1px rgb(255,255,255,0.5),inset 0 0 10px 1px rgb(255,255,255,0.5);
+    transition-delay: .2s;
+    box-shadow: 0 0 10px 1px rgb(163, 207, 205),0 0 20px 1px rgb(163, 207, 205),inset 0 0 10px 1px rgb(163, 207, 205);
+}
+.introText{
+    color: white;
+    opacity: 1;
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size: 30px;
+    font-weight: 700;
+    z-index: 99;
+}
+#onlyOne{
+    color: white;
+    font-size: 23px;
+    border: white solid 2px;
+    position: relative;
+    top: 300px;
+    margin: auto;
+    width: 100px;
+    height: 60px;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 60px;
+    z-index: 4;
+}
+#onlyOne:hover{
+    background-color: white;
+    color: black;
+    font-weight: 800;
+    font-size: 25px;
+    box-shadow: 0 0 10px 1px white,0 0 10px 1px white;
+    cursor: pointer;
+}
+.introCon{
+    opacity: 0;
+    color: black;
+    float: left;
+    margin-left: 20px;
+    margin-top: 50px;
+    width: 310px;
+    height: 310px;
+    padding: 50px;
+    border-radius:36% 64% 30% 70% / 75% 32% 68% 25% ;
+    background:linear-gradient(-135deg,#05FBC5 20%,#00DFDC 40%,#00C0E8 50%,#009FE3 60%,#007CCD 80%,#4D58A6);
+    box-shadow:inset 0 0 10px 1px rgba(163, 207, 205, 0.5),inset 0 0 20px 1px rgba(163, 207, 205, 0.7),0 0 10px 1px rgba(163, 207, 205, 0.5),0 0 20px 1px rgba(163, 207, 205,0.7);
+    font-size: 16px;
+    text-shadow:0 0 10px rgba(255, 255, 255);
+}
+#box0_2{
+    margin-left: 20px;
+    border-radius:75% 25% 79% 21% / 26% 78% 22% 74% ;
+    background:linear-gradient(-135deg,#9EFF05,#00EA49,#00D071,#00B492,#0097AC,#007ABA);
+}
+#box0_3{
+    width: 350px;
+    height: 360px;
+    border-radius:85% 15% 79% 21% / 15% 75% 25% 85% ;
+    background:linear-gradient(-135deg,#007ABA,#4875C0,#706DBF,#9363B6,#B058A7,#C64D91);
+}
+#box1_1{
+    padding: 55px 30px 0;
+    width: 200px;
+    height: 200px;
+    float: none;
+    position: absolute;
+    font-size: 10px;
+    font-weight: lighter;
+    top: -100px;
+    right: -5px;
+    border-radius: 46% 54% 35% 65% / 63% 37% 63% 37% ;
+    background: linear-gradient(-135deg,#9CFF00,#00EA49,#00D072,#00B494,#0097AE,#007ABC);
+}
+#box1_2,#box1_3,#box1_4,#box1_5{
+    padding: 35px;
+    width: 110px;
+    height: 110px;
+    font-size: 10px;
+    font-weight: lighter;
+    margin-left: 30px;
+    margin-top: 0;
+    border-radius: 49% 51% 46% 54% / 40%;
+    background: linear-gradient(-135deg,#F4FF00,#A1E915,#3FD031,#00B447,#009657,#007862);
+}
+#box1_5{
+    margin-left: -50px;
+    margin-right: 20px;
+    border-radius: 46% 54% 35% 65% / 63% 37% 63% 37% ;
+    background:linear-gradient(-135deg,#05FBC5 20%,#00DFDC 40%,#00C0E8 50%,#009FE3 60%,#007CCD 80%,#4D58A6);
+}
+#box3_1{
+    margin-top: 0;
+    margin-left: -40px;
+    margin-right: 20px;
+    width: 165px;
+    height: 165px;
+    background: linear-gradient(-135deg,#DF5555,#D64C7F,#B656A4,#8265BC,#3070C1,#0075B4);
+}
+.introImg.scrollImg_bounce{
+    float: left;
+    margin-top: 150px;
+    margin-left: 25px;
+    width: 150px;
+    height: 200px;
+    border-radius: 40px/30px;
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#introImg1{
+    width: 300px;
+    background-image: url("../images/机器学习1.jpg");
+}
+#introImg2{
+    clear: both;
+    width: 350px;
+    background-image: url("../images/机器学习2.png");
+}
+#introImg3{
+    background-image: url("../images/机器学习3.png");
+    background-size: contain;
+}
+#introImg4{
+    background-image: url("../images/机器学习4.png");
+    background-size: contain;
+}
+#introImg5,#introImg6{
+    margin-top: -20px;
+    margin-left: 0;
+    margin-right: 10px;
+    background-image: url("../images/DFS.png");
+}
+#introImg6{
+    margin-top: -30px;
+    background-image: url("../images/BFS.png");
+}
+#introImg7,#introImg8{
+    width: 300px;
+    margin-top: 10px;
+    margin-left: 30px;
+    background-image: url("../images/BFS8.png");
+}
+#introImg8{
+    background-image: url("../images/DFS8.png");
+}
+#introImg9{
+    margin: -80px 120px -50px 0;
+    width: 300px;
+    background-image: url("../images/机器学习5.png");
+}
+#introImg10,#introImg11{
+    width: 400px;
+    margin-top:-20px;
+    margin-right: 20px;
+    background-size: contain;
+    background-image: url("../images/KNN1.png");
+}
+#introImg11{
+    background-image: url("../images/KNN2.png");
+}
+#introImg12,#introImg13,#introImg14{
+    margin-top: 0;
+    width: 500px;
+    background-image: url("../images/生物神经元.png");
+}
+#introImg13{
+    background-image: url("../images/人工神经网络.png");
+}
+#introImg14{
+    margin-top: -20px;
+    margin-left: -25px;
+    width: 700px;
+    background-image: url("../images/前馈神经网络.png");
+}
+#introImg15{
+    margin-top: -30px;
+    width: 600px;
+    background-image: url("../images/文本分类.png");
+}
+.textBox{
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    padding: 5%;
+    text-shadow:0 0 10px rgba(255, 255, 255);
 }

@@ -25,6 +25,7 @@ export function svgSrc (event,menuHover){
             if(event.target.dataset.name==='3')
             {
                 menuHover.classList.toggle('open');
+                menuHover.firstElementChild.classList.add('start')
             }
         }
         event.target.onmouseleave=function (){

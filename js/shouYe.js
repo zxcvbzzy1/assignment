@@ -2,7 +2,7 @@ import {animate} from './animate.js'
 import {scroll_top} from "./animate_scroll.js";
 import {svgSrc, srcContact, srcContact1,change_Src} from "./changeSrc.js";
 import {arrScrollAni,itemScrollAni} from "./animate_scroll.js";
-
+import {guideHide} from "./guide.js";
 window.onload=function (){
     let str=`最先，有很多关于机器人的传说。如今，我们位于这些传说成为现实的临界点.
         当下世界所蕴含奇迹之多绝非远古先知的梦境所能构想，所拥有的灾祸之恐怖也非天启所能描绘，
@@ -157,6 +157,7 @@ window.onload=function (){
         itemScrollAni(h1)
     menuHover.onmouseleave=function (){
         menuHover.classList.remove('open')
+        menuHover.firstElementChild.classList.remove('start')
     }
-
+    guideHide(menuHover)
 }

@@ -13,7 +13,7 @@
 <link href="css/contactStyle.css" rel="stylesheet" type="text/css">
 <link href="css/scrollbar.css" rel="stylesheet" type="text/css">
 <script defer type="module" src="js/AIUse.js"></script>
-<body onselect="return false">
+<body id="body">
 <div class="daoHang" onmousedown="return false;">
     <div class="break"></div>
     <div class="breakHover"><img class="logo scrollImg_bounce" id="logo" src="images/logo.png" alt="logo">
@@ -41,24 +41,492 @@
         </tr>
     </table>
 </div>
-<div class="menuHover" id="menuHover"></div>
+<div class="menuHover" id="menuHover">
+    <ul class="scrollText_scl">
+        <li class="menuLi"><span>人工智能历史</span>
+            <ul hidden>
+                <li><a href="./AIHistory.html#introBox1"><span>梦的开始</span></a></li>
+                <li><a href="./AIHistory.html#introBox2"><span>黄金时代</span></a></li>
+                <li><a href="./AIHistory.html#introBox3"><span>第一次AI寒冬</span></a></li>
+                <li><a href="./AIHistory.html#introBox4"><span>应用发展</span></a></li>
+                <li><a href="./AIHistory.html#introBox5"><span>第二次AI寒冬</span></a></li>
+                <li><a href="./AIHistory.html#introBox6"><span>稳健发展</span></a></li>
+                <li><a href="./AIHistory.html#introBox7"><span>新时代</span></a></li>
+            </ul>
+        </li>
+        <li class="menuLi" id="change"><span>人工智能介绍</span>
+            <ul hidden>
+                <li data-w="0"><span>人工智能的f(x)=y</span></li>
+                <li data-w="1"><span>知识表示</span></li>
+                <li data-w="2"><span>搜索策略</span></li>
+                <li data-w="3"><span>机器学习与KNN</span></li>
+                <li data-w="4"><span>深度学习与神经网络</span></li>
+                <li data-w="5"><span>计算机视觉、听觉</span></li>
+                <li data-w="6"><span>自然语言处理</span></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<div class="scrollText_scl start" id="onlyOne"><span>展开</span></div>
 <div id="main">
     <div class="intro" id="intro1" data-w="0" style="z-index: 99">
-        111111
+       <div class="introText">人工智能的f(x)=y</div>
+        <div class="introCon scrollText_scl" style="--d:0.4" id="box0_1">
+        <p class="scrollText_scl" style="--d:0.8">
+            &emsp;&emsp;在了解人工智能的相关概念之前，我们首先要了解什么是人工智能.
+        </p>
+        <p class="scrollText_scl" style="--d:1.2">
+            &emsp;&emsp;依照某百科的解释，人工智能是研究、开发用于模拟、延伸和
+            扩展人的智能的理论、方法、技术及应用系统的一门新的技术学科.
+        </p>
+        <p class="scrollText_scl" style="--d:1.6">
+            &emsp;&emsp;本人比较喜欢的解释是把人工智能可以拆开成人工+智能；什么是智能，
+            目前我们熟知的仅是人的智能，而人的智能是不断发展学习，一个有自理能力的人每天都
+            不断学习，可以说人的智能本质之一是学习，同样的人工智能的本质可以先看作机器学习。
+        </p>
+        </div>
+        <div class="introImg scrollImg_bounce" id="introImg1" style="--d:2"></div>
+        <div class="introImg scrollImg_bounce" id="introImg2" style="--d:2"></div>
+        <div class="introCon scrollText_scl" style="--d:0.4" id="box0_2">
+            <p class="scrollText_scl" style="--d:0.8">
+                &emsp;&emsp;那什么是机器学习呢？
+            </p>
+            <p class="scrollText_scl" style="--d:1.2">
+                &emsp;&emsp;按某百科定义，机器学习是一门多领域交叉学科，涉及概率论、统计学、逼近论、凸分
+                析、算法复杂度理论等多门学科。专门研究计算机怎样模拟或实现人类的学习行为,以
+                获取新的知识或技能,重新组织已有的知识结构使之不断改善自身的性能.
+            </p>
+            <p class="scrollText_scl" style="--d:1.6">
+                &emsp;&emsp;简单点说，即是重组已有的经验和规律，研究出一个新的规律。这个规律可以更高效的
+                解决现有的问题。而机器学习的目的则为举一反三，具备求解未知答案的能力，即可以看作f（x）=y中的
+                f（），通过大量的x与y来找到f（）则为机器学习。
+            </p>
+        </div>
+        <div class="introCon scrollText_scl" style="--d:0.4" id="box0_3">
+            <p class="scrollText_scl" style="--d:0.8">
+                &emsp;&emsp;在我们选择训练f（）时，经常会遇到线性与非线性，那什么是线性什么是非线性呢？
+            </p>
+            <p class="scrollText_scl" style="--d:1.2">
+                &emsp;&emsp;举个例子来讲，我们在一个二维坐标系中画四个点为（0，0）、（0，1）、（1，1）、（1，0）
+                然后现在有三个问题，一个是划分出x，y都为1的点，一个是划分出x，y中至少有一个为1的点，最后一个是划分出
+                x，y中仅有一个为1的点。前两个问题都可以画一条笔直的直线来解决。而最后一个，我们可以把它放到
+                高维空间里（在此问题里为三维），画一个平面，在把它投影到二维空间里，如图所示，来解决。
+            </p>
+            <p class="scrollText_scl" style="--d:1.6">
+                &emsp;&emsp;前两个问题就是可以可以线性解决的，而后一个是非线性的。而这条线我们可以看作计算机中的决策
+                边界。
+            </p>
+        </div>
+        <div class="introImg scrollImg_bounce" id="introImg3" style="--d:2"></div>
+        <div class="introImg scrollImg_bounce" id="introImg4" style="--d:2"></div>
     </div>
     <div class="intro" id="intro2" data-w="1">
-        222222
+        <div class="introText">知识表示</div>
+        <div class="textBox scrollText_scl">
+            <p class="scrollText_scl" style="--d:0.8">
+                再谈知识的表示时，我们给首先弄清楚，什么是知识？
+            </p>
+            <p class="scrollText_scl" style="--d:0.9">
+                Feigenbaunm认为知识是经过螫理、加工、解释和转换的信息。
+            </p>
+            <p class="scrollText_scl" style="--d:1">
+                Bernstein认为它是由特定领斌的描述、关系和过程组成的。
+            </p>
+            <p class="scrollText_scl" style="--d:1">
+                Hayes Roth则将知识用三维空间来描述，即知识=事实+信念+启发式规则。
+            </p>
+            <p class="scrollText_scl" style="--d:1">
+                从知识库的观点看,知识则是某领域中所涉及的各有关方面、状态的一种符号表示。
+                目前所认可的定义是:“知识是一个或多个信息的关联”。就是说,知识是把有关信息
+                关联在一起所形成的信息结构。它反映了客观世界中事物的关系,不同物或着相同事
+                物间的不同关系形成了不同的知识。
+            </p>
+            <div class="introCon scrollText_scl" id="box1_1">
+                知识的特点<br>
+                相对正确性：任何知识都是在一定条件和环境下产生的，在特定的条件和环境下才是正确的。<br>
+                不确定性：随机性引起的、模糊性引起的、经验引起的、不完全性引起的<br>
+                可表示性与可利用性：知识可以用适当的形式表示出来，如语言、文字、图形、神经网络等。
+            </div>
+            <p class="scrollText_scl" style="--d:1.1">
+                知识表示=数据结构+处理机制<br>
+                一般来说，对于同一种知识可以采用不同的表示方法，反过来，一种知识表示方法可以表达多种不同的知识。
+                然而，在求解某一问题时，不同的表示方法会产生完全不同的效果。<br>
+                迄今为止，人们还没有找到一种通用、完普的知识表示模式，知识表示还没有完善的理论可循。
+            </p>
+            <div class="introCon scrollText_scl" id="box1_2">
+                知识表示的原则:<br>
+                1.正确有效的表示知识<br>
+                2.便于理解和实现<br>
+                3.便于知识组织、维护、管理<br>
+                4.便于利用<br>
+                5.便于知识获取
+            </div>
+            <div class="introCon scrollText_scl" id="box1_3">
+                知识表示的分类:<br>
+                1.陈述性知识表示：以数据的形式表示<br>
+                2.过程性知识表示：知识表示形式是一个过程<br>
+            </div>
+            <div class="introCon scrollText_scl" id="box1_4">
+                主要知识表示方法:<br>
+                1.谓词逻辑表示法<br>
+                2.语义网络表示法<br>
+                3.框架表示法<br>
+                4.过程表示法<br>
+                5.Petri网表示法<br>
+                6.面向对象表示法<br>
+                7.ANN表示法<br>
+            </div>
+            <p class="scrollText_scl" style="--d:1.2;clear: both;">
+                下面我们重点来介绍谓词逻辑表示法
+            </p>
+            <p class="scrollText_scl" style="--d:1.3">
+                <b>谓词逻辑表示法</b>
+            </p>
+            <p class="scrollText_scl" style="--d:1.4">
+                谓词逻辑是能够表示人类思维活动规律的一种精确的形式语言。谓词逻辑是知识的形式化表示、定理的自动证明等研究的基础。
+                谓词是用来描述或判定对象性质、特征或者对象之间关系的词项，具有真假语义题。
+            </p>
+            <p class="scrollText_scl" style="--d:1.5">
+                语法元素<br>
+                常量符号：表示常量的符号，常量可以是现实世界中的对象<br>
+                变量符号：变量，未指定对象的符号，类似于函数变量<br>
+                函数符号：函数f包含个体数目为n，称f为n元函数符号（函数为定义域到值域的映射）<br>
+                谓词符号：谓词P包含个体数目为n，称P为n元谓词符号（谓词为定义域到{真,假}的映射<br>
+                连接词：用于谓词之间的运算<br>
+                ¬：否定（Negation）：复合公式¬Q 表示“非Q”<br>
+                ∧：合取（Conjunction）：复合公式P∧Q 表示“P 与Q”<br>
+                ∨：析取（Disjunction）：复合公式P∨Q 表示“P 或Q”<br>
+                →：条件（Condition）：复合公式P→Q 表示“如果P那么Q”<br>
+                ↔：双条件（Bicondition）：复合公式P↔Q 表示“如果P，那么Q；如果Q，那么P”<br>
+                量词<br>
+                ∀x：全称量词，x 称为量词的指导变量<br>
+                ∃x：存在量词<br>
+            </p>
+            <p class="scrollText_scl" style="--d:1.5">
+                谓词的阶<br>
+                如果谓词中的所有个体都是常量、变量或函数，那么谓词为一阶谓词<br>
+                如果谓词P中的某个个体本身又是一个一阶谓词，那么P为二阶谓词，以此类推。<br>
+            </p>
+            <div class="introCon scrollText_scl" id="box1_5">
+                谓词逻辑表示的步骤:<br>
+                1.定义谓词和个体<br>
+                2.为变量赋值（个体作为值）<br>
+                3.连接词连接谓词，形成谓词公式<br>
+            </div>
+            <p class="scrollText_scl" style="--d:1.6">
+                示例：<br>
+                #武汉是个美丽的城市，但不是沿海城市。谓词逻辑表示为：<br>
+                是个美丽的城市(武汉) ∧ ¬是个沿海城市(武汉)<br>
+                #机器人站在墙边，手里没有拿东西，桌子上放着积木。谓词逻辑表示为：<br>
+                在旁边站着(机器人,墙) ∧ 手空着(机器人) ∧ 在上面(积木,桌子)<br>
+                #机器人拿起积木，谓词表示方法为：<br>
+                #删除"手空着(机器人)∧在上面(积木,桌子)"，增加"拿着(机器人,积木)"，如下：<br>
+                在旁边站着(机器人,墙) ∧ 拿着(机器人,积木)<br>
+            </p>
+        </div>
     </div>
     <div class="intro" id="intro3" data-w="2">
-        333333
+        <div class="introText">搜索策略</div>
+        <div class="textBox scrollText_scl">
+            <p class="scrollText_scl" style="--d:0.8">
+                一般求解的问题通常都是先用代数方程或者微分方程等敷学表达式得到最优化问题的数学模型,
+                然后求解方程,得到问题的解。
+            </p>
+            <p class="scrollText_scl" style="--d:0.9">
+                但是实际上很多问题,根本不能表示成代数方程或者微分方程等数学表达式,例如著名的旅行商
+                问题、重排九宫等问题。这类问题的求解无法通过数学表达式求解,而是靠搜索发现。
+            </p>
+            <p class="scrollText_scl" style="--d:1">
+                按照搜索过程中有没有应用启发式信息,主要有两类搜索:
+            </p>
+            <p class="scrollText_scl" style="--d:1.1">
+                (1)盲目搜索,指在不具有对特定问题的任何有关信息的条件下,按固定的步骤(依次或随机调用操作算子)
+                进行的搜索，它能快速的调用操作算子。例如。在迷宫寻路问通中，每次走一步路,一直走到死路才回头。
+                再选择其他的路走,直到找到出口。
+            </p>
+            <p class="scrollText_scl" style="--d:1.2">
+                (2)启发式搜索，搜索时考虑特定问题领域可应用的知识，动态地确定调用操作算子步骤,优先选择适合
+                的操作算子.尽量减少不必要的搜索，以求尽快地到达结束状态，提高搜索效率。
+            </p>
+            <p class="scrollText_scl" style="--d:1.3">
+                在盲目搜索中有两种基本的搜索策略，分别为深度优先搜索（DFS）和宽度优先搜索（BFS）
+            </p>
+            <p class="scrollText_scl" style="--d:1.4">
+                <b>深度优先搜索</b>
+            </p>
+            <div class="introImg scrollImg_bounce" id="introImg5"></div>
+            <p class="scrollText_scl" style="--d:1.5">
+                简而言之，一个顶点V0开始，沿着一条路一直走到底，如果发现不能到达目标解,那就返回
+                到上一个节点，然后从另一条路开始走到底，尽量往深处走。
+            </p>
+            <p class="scrollText_scl" style="--d:1.6">
+                在深度优先搜索中，可能会遇到一条分支路走到底都没结果，而在另一条分支比较浅的地方有我们
+                需要的目标，在分支比较深的情况下，这种情况会浪费许多不必要的时间。故我们不妨设想一个最大
+                深度d，当搜索的深度大于d时，则立即回溯，这样能提高一定的搜索效率，这种方法叫做深度受限搜索。
+            </p>
+            <p class="scrollText_scl" style="--d:1.7">
+                但这个d可能需要我们手动来找，我们不妨设想把这个d交给计算机来寻找，于是就有迭代加深（Iterative deepening）搜索，
+                在这个搜索策略中，一个具有深度限制的深度优先搜索算法会不断重复地运行，并且同时放宽对于搜索深度的限制，直到找到目标状态。
+            </p>
+            <p class="scrollText_scl" style="--d:1.8">
+                <b>宽度优先搜索</b>
+            </p>
+            <div class="introImg scrollImg_bounce" id="introImg6"></div>
+            <p class="scrollText_scl" style="--d:1.9">
+                从初始节点开始，按生成规则生成第一层节点，检查目标节点是否在这些后继节点中，若没有,
+                再用产生式规则将所有第一层的节点逐一扩展,得到第二层节点，并逐一检查第二层节点中是
+                否包含目标节点。若没有，再用算符逐一扩展第二层的所有节点……，如此依次扩展，检查下
+                去，直到发现目标节点为止。
+            </p>
+            <p class="scrollText_scl" style="--d:2.0;clear: both;">
+                对比DFS与BFS我们可以发现，深度优先适合深度大的树,不适合广度大的树，广度优先则正好相反。
+            </p>
+            <p class="scrollText_scl" style="--d:2.1">
+                所谓深度大的树就是指起始节点到目标节点的中间节点多的树
+                （可以理解成问题有很多中间解，但要得到完全正确的结果，就必须先依次求出这些中间解）。
+                所谓广度大的树就是指起始节点到目标节点的可能节点很多的树
+                （可以理解成问题有很多可能解，要得到完全正确的结果，就必须依次判断这些可能解是否正确）
+            </p>
+            <p class="scrollText_scl" style="--d:1.9">
+                例如，在八数码问题里，DFS与BFS对于目标节点所需要遍历不同数量。图旁数字为遍历的顺序先后
+            </p>
+            <div class="introImg scrollImg_bounce" id="introImg7"></div>
+            <div class="introImg scrollImg_bounce" id="introImg8"></div>
+        </div>
     </div>
     <div class="intro" id="intro4" data-w="3">
-        444444
+        <div class="introText">机器学习与KNN</div>
+        <div class="textBox scrollText_scl">
+            <p class="scrollText_scl" style="--d:0.8">
+                机器学习（Machine learning）是人工智能的重要研究领域 ，它主要目的是使计算机能模拟人的学习行为。
+                自动地通过学习获取知识和技能。不断改善性能,实现自我完善。
+            </p>
+            <p class="scrollText_scl" style="--d:0.9">
+                机器学习主要研究三个方面问题<br>
+                (1)学习机制<br>
+                这是对人类学习机制地研究，即人类获取知识、技能和抽象概念的能力。通过这一研究，将从根本上解决
+                机器学习中存在的种种问题。<br>
+                (2)学习方法<br>
+                研究人类学习过程，探索各种可能的学习方法，构建独立于具体应用邻域的学习算法。<br>
+                (3)学习系统<br>
+                根据特点任务要求，建立相应的学习系统
+            </p>
+            <div class="introCon scrollText_scl" id="box3_1">
+                学习系统的条件和能力:<br>
+                (1)具有适当的学习环境<br>
+                (2)具有一定的学习能力<br>
+                (3)能应用学到的知识求解问题<br>
+                (4)能提高系统的性能
+            </div>
+            <p class="scrollText_scl" style="--d:1.0">
+                学习系统的基本模型。
+            </p>
+            <div class="introImg scrollImg_bounce" id="introImg9"></div>
+            <p class="scrollText_scl" style="--d:1.1" >
+                机器学习按系统的学习能力分类<br>
+                监督学习:在学习时需要教师的示教或训练。很大的工作量。难以实现<br>
+                无监督学习:用评价标准代替人的监督工作，一般效果比较差.<br>
+                弱监督学习:综合优点。利用不完全的有标签数据进行监督学习,同时利用大量的无标签数据进行无监督学习.
+                主要有半监督学习，迁移学习，强化学习.
+            </p>
+            <p class="scrollText_scl" style="--d:1.2">
+                监督学习(supervised learning)<br>
+                监督学习根据教师提供的正确响应调整学习系统的参数和结构。包括归纳学习、示例学习、
+                支持向量机学习，BP学习等。
+            </p>
+            <p class="scrollText_scl" style="--d:1.3">
+                无监督学习(unsupervised learning)<br>
+                无监督学习系统完全按照环境提供的数据的某些统计规律调节自身的参数或者结构(自组织)，
+                以表示外部输入的某种固有特性。包括各种自组织学习方法，如聚类学习、自组织神经网络
+                学习、自编码器等。
+            </p>
+            <p class="scrollText_scl" style="--d:1.4">
+                弱监督学习<br>
+                在弱监督学习中，允许数据标签是不完全的，即训练集中只有一部分数据是有标签的，而其余
+                数据甚至是绝大部分数据是没有标签的。弱监督学习，更接近人类的学习方式。三种典型的弱
+                监督学习:半监督学习,迁移学习，强化学习。
+            </p>
+            <p class="scrollText_scl" style="--d:1.5">
+                <b>KNN</b>
+            </p>
+            <p class="scrollText_scl" style="--d:1.6">
+                KNN(K Nearest Neighbors)意思是K个最近的邻居，从这个名字我们就能看出一些KNN算法的
+                蛛丝马迹了。K个最近邻居，毫无疑问，K的取值肯定是至关重要的。KNN的原理就是当预测一个新的
+                值x的时候，根据它距离最近的K个点是什么类别来判断x属于哪个类别。如图所示。
+            </p>
+            <div class="introImg scrollImg_bounce" id="introImg10"></div>
+            <p class="scrollText_scl" style="--d:1.7">
+                KNN算法优点<br>
+                1.简单易用，相比其他算法，KNN算是比较简洁明了的算法。即使没有很高的数学<br>
+                2.基础也能搞清楚它的原理。<br>
+                3.模型训练时间快。<br>
+                4.预测效果好。<br>
+                5.对异常值不敏感<br>
+            </p>
+            <p class="scrollText_scl" style="--d:1.8;clear: both;">
+                当K取不同值时，结果可能不同，如图所示。
+            </p>
+            <div class="introImg scrollImg_bounce" id="introImg11"></div>
+            <p class="scrollText_scl" style="--d:1.9">
+                KNN算法缺点<br>
+                1.对内存要求较高，因为该算法存储了所有训练数据<br>
+                2.预测阶段可能很慢<br>
+                3.对不相关的功能和数据规模敏感<br>
+            </p>
+        </div>
     </div>
     <div class="intro" id="intro5" data-w="4">
-        555555
+        <div class="introText">深度学习与神经网络</div>
+        <div class="textBox scrollText_scl">
+            <p class="scrollText_scl" style="--d:0.8">
+                在我们了解人工智能的神经网络之前，我们首先了解生物的神经网络。人类的大脑可以实现如此复杂的计算和记忆，完
+                全靠900亿神经元组成的神经网络。通过神经元接收外界信号，达到一定阈值，触发动作电位，通过突触释放神经递
+                质，可以是兴奋或抑制，影响突触后神经元。通过此实现大脑的计算、记忆、逻辑处理等，进行做出一系列行为等。同
+                时不断地在不同神经元之间构建新的突触连接和对现有突触进行改造，来进行调整。
+            </p>
+            <div class="introImg scrollImg_bounce" id="introImg12"></div>
+            <p class="scrollText_scl" style="--d:0.9;clear: both;">
+                科学家们从生物神经网络的运作机制得到启发，构建了人工神经网络。下图是最经典的MP神经元模型，是1943年由科学家McCulloch和Pitts
+                提出的，他们将神经元的整个工作过程抽象为下述的模型。
+            </p>
+            <div class="introImg scrollImg_bounce" id="introImg13"></div>
+            <p class="scrollText_scl" style="--d:1.0;clear: both;">
+                输入用来模拟生物神经网络中来自其他神经元的输入；<br>
+                权重w用来模拟生物神经网络中每个神经元对外接收的突触强度不同，所以外界接收的输
+                入乘以一定权重；<br>
+                b用来模拟生物神经网络中神经元的一般敏感性。每个神经元的敏感性不同，所以需要一
+                定的偏差来调整汇总值；<br>
+                wx+b用来模拟生物神经网络中神经元对外接收的信号进行累加汇总；<br>
+                f用来模拟生物神经网络中信号累积到一定程度产生的动作电位，当累积到一定程度就会“激活”动作电位；<br>
+                y用来模拟模拟生物神经网络中神经元对外释放的新的信号；<br>
+                此过程也被称为<b>感知器</b>
+            </p>
+            <p class="scrollText_scl" style="--d:1.1">
+                在一个感知器中，我们要通过大量训练来改变权重w和偏移值b来找出f，拟合输出值。我们可以通过设置学习率来调整
+                每次改变的程度。对于一个感知器，我们可以解决线性问题，而对于非线性问题，我们需要更多的感知器。多个感知器组成
+                的多层感知器即为多层神经网络的一种，即为<b>前馈人工神经网络</b>，如图所示。人工神经网络有许多种如卷积神经网络CNN，递归神经网络RNN，
+                这里不做介绍。
+            </p>
+            <div class="introImg scrollImg_bounce" id="introImg14"></div>
+            <p class="scrollText_scl" style="--d:1.2">
+                对于多层神经网络来说，网络层数的增加，神经网络所能拟合的决策分界平面的能力提高。
+            </p>
+            <p class="scrollText_scl" style="--d:1.3">
+                而深度学习与神经网络之间的关系，引用邱锡鹏教授编写的《神经网络与深度学习》一书中的一句话
+                “神经网络天然不是深度学习，但是深度学习天然是神经网络”。也就是说，神经网络的用途非常广泛，
+                深度学习仅仅是其应用领域之一，但是目前的深度学习领域所使用的模型，主要还是以神经网络为主。
+            </p>
+        </div>
     </div>
-
+    <div class="intro" id="intro6" data-w="5">
+        <div class="introText">计算机视觉、听觉</div>
+        <div class="textBox scrollText_scl">
+            <p class="scrollText_scl" style="--d:0.8">
+                <b>计算机视觉</b>
+            </p>
+            <p class="scrollText_scl" style="--d:0.9">
+                计算机视觉是一类类似于人眼的新型检测方法，对采集的图片或视频进行处理以获得相应场景的三维信息。
+            </p>
+            <p class="scrollText_scl" style="--d:1.0">
+                类比于人的视觉系统,计算机视觉是一门研究如何对数字图像或视频进行高层理解的交叉学科。计算机视觉是探度学习领域最热门的研究领域之一。
+                计算机视觉与很多学科都有密切关系，是一个跨领域的交叉学科，包括计算机科学
+                （图形、算法、理论、系统、体系结构)、数学（信息检索、机器学习)、工程学(机器人、语音处理、自然语言处理、图像处理)、
+                物理学(光学)、生物学（神经科学）和心理学(认知科学)等。
+            </p>
+            <p class="scrollText_scl" style="--d:1.1">
+                计算机视觉为人工智能的发展开拓了道路.数字图像处理是计算机视觉的基础。模式识别中以图像为输入的任务多数也可以看作
+                计算机视觉的研究范畴。机器学习则为计算机视觉提供了分析、识别和理解的方法和工具。
+            </p>
+            <p class="scrollText_scl" style="--d:1.2">
+                脑科学领域与计算机视觉密切相关。如认知科学、神经料学、心理学等。一方面，这些学科受益于数字图像处理、计算摄影学、计算机视觉等学科带来
+                的图像处理和分析工具。另一方面，它们揭示的视觉认知规律、视皮层神经机制等推动计算机视觉领域的发展。
+                如，深度学习就是受到了神经科学的启发而发展。计算机科学与脑料学进行交叉研究，前景广成。
+            </p>
+            <p class="scrollText_scl" style="--d:1.3">
+                <b>计算机听觉</b>
+            </p>
+            <p class="scrollText_scl" style="--d:1.4">
+                计算机听觉是一个基于音频信号处理和机器学习对数字声音与音乐的内容进行理解和分析的学科。
+            </p>
+            <p class="scrollText_scl" style="--d:1.5">
+                在生活中我们可以见到很多计算机听觉的例子，如人对机，机对机，机对人。第一类人机语言通信问题:指的是机器讲话人听话的研究。
+                对应于语音合成技术。第二类人机语言通信问题,指的是人讲话、机听话的情况，对应于语音识别和理解技术。
+            </p>
+            <p class="scrollText_scl" style="--d:1.6">
+                语音合成是人机语声通信的语音信号处理的三大分支之一，语音合成技术赋予机器“人工啃巴”的功能，
+                即让机器像人那样说话。关键是让计算机能够产生高清晰度、高自然度的连续语音。
+            </p>
+            <p class="scrollText_scl" style="--d:1.7">
+                语音合成有从低到高三类层次(1)按规则从文字到语音的合成(2)按规则从概念到语音的合成
+                (3)按规则从意向到语音的合成
+            </p>
+            <p class="scrollText_scl" style="--d:1.8">
+                语音编码（“话音编码”是特指通信传输系统中代表口语发声的200Hz~3400Hz的信号）是另一分支，语音编码的目的是就是要在保
+                证语音音质和可懂度的条件下,采用尽可能少的比特数来表示语音,节省存贮空闻和频率资源。
+            </p>
+            <p class="scrollText_scl" style="--d:1.9">
+                语音识别，是指把语音信号的特征存储到计算机内，并与计算机接收到的发音进行比较，通过比较、识别过程把语音
+                信号转变为相应的文本或命令，它的目的是使计算机能够听懂人类的语言。
+            </p>
+            <p class="scrollText_scl" style="--d:2.0">
+                语音识别研究方向有三个：（1）说话人的说话方式，孤立字语音识别，连续字语音识别，连续语音识别；
+                （2）说话人依赖程度，特定人语音识别，非特定人语音识别；（3）词汇量大小，小词汇量语音识别，中
+                等词汇量语音识别，大词汇量语音识别，无限词汇量语音识别。
+            </p>
+        </div>
+    </div>
+    <div class="intro" id="intro7" data-w="6">
+        <div class="introText">自然语言处理</div>
+        <div class="textBox scrollText_scl">
+            <p class="scrollText_scl" style="--d:0.8">
+                人类的日常生活充满语言，自然语言作为一种最便利快速的表达工具无处不在，这里的自然语
+                言是指任何一种人类语言，例如中文、英语等，并不包括计算机之类的语言（如Java、C、
+                C++等）。而自然语言处理是将人类交流沟通所用的语言经过处理转化为机器所能理解的机器语言。
+            </p>
+            <p class="scrollText_scl" style="--d:0.9">
+                自然语言处理作为人工智能的一个重要分支。随着近十几年计算机计算性能的大幅度提高和各种大规模样本库的构建，
+                自然语言处理技术取得了长足的进步，并且在多个领域被广泛应用,如教育系统中智能教育，医学领域中的医学影像医疗效果预测，
+                与网络社交媒体密切相关的舆情分析等等，自然语言处理在其他专业的影响, 随着社会经济科技发展,信息传播越来越便捷,
+                自然语言处理与各个专业学科相互沟通、相互交融而愈加明显与重要。
+            </p>
+            <p class="scrollText_scl" style="--d:1.0">
+                <b>自然语言处理中文本分类</b>
+            </p>
+            <p class="scrollText_scl" style="--d:1.1">
+                文本分类是指按照一定的分类体系或规则对文本实现自动划归类别的过程, 一般包括文本预处理、特征提取、文本表示几个过程，
+                如图所示。
+            </p>
+            <div class="introImg scrollImg_bounce" id="introImg15"></div>
+            <p class="scrollText_scl" style="--d:1.2;clear: both;">
+                文本预处理的第一步就是分词，其次则为去停用词,去停用词就是去除自然语言中，一些没有实际意义的词组，比如：“的”、“了”、“得”等.
+            </p>
+            <p class="scrollText_scl" style="--d:1.3">
+                自然语言处理任务非常重要的一步就是特征提取，在向量空间模型中，文本的特征包括字、词组、短语等多种元素表示。在文本数据集上一般含有数
+                万甚至数十万个不同的词组，如此庞大的词组构成的向量规模惊人，计算机运算非常困难。所以进行特征选择，对文本分类具有重要的意义。特征选
+                择就是要想办法选出那些最能表征文本含义的词组元素,它不仅可以降低问题的规模，还有助于分类性能的改善，选取不同的特征对文本分类系统的
+                性能有非常重要的影响
+            </p>
+            <p class="scrollText_scl" style="--d:1.4">
+                文本作为一种非结构化的数据信息，是不可以直接被计算的。而文本表示的作用就是将这些非结构化的信息转化为计算机可以理解的结构化的信息，
+                这样就可以针对文本信息做计算，来完成后面的任务。
+            </p>
+            <p class="scrollText_scl" style="--d:1.5">
+                对于最后的分类器，其中文本分类方法模型主要分为两个大类，一类是传统的机器学习方法，而另一类是新兴的深度学习模型。
+            </p>
+            <p class="scrollText_scl" style="--d:1.6">
+                <b>自然语言处理中文本情感分析</b>
+            </p>
+            <p class="scrollText_scl" style="--d:1.7">
+                所谓文本情感分析，是利用算法来分析提取文本中表达的情感。例如分析一个句子表达的好、中、坏等判断，高兴、悲伤、愤怒等情绪。
+                随着网络用户的不断增长，越来越多的网民可以在社交平台上发表自己的观点言论，表达自己的想法和见解。因此对于商家和企业而言，
+                在自己的平台分析用户的语言中的情感色彩和具有倾向性的言论，知道客户的喜好情感，有助于商家推出新的产品，改进自身的服务。
+                文本情感分析目前在系统推荐、用户情感信息获取，为政府、企业提供舆情参考等领域越来越占据重要地位。
+            </p>
+            <p class="scrollText_scl" style="--d:1.8">
+                目前主要有三种文本情感分析的方法：基于情感字典的情感分析法、基于机器学习的情感分析法和基于深度学习的情感分析法。
+            </p>
+        </div>
+    </div>
 </div>
 <footer>
     <svg width="0" height="0">
